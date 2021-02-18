@@ -1,3 +1,4 @@
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
@@ -10,6 +11,10 @@ console.log("");
 
 const config = {
   entry: "./src/client/index.tsx",
+  devServer: {
+    contentBase: path.join(__dirname, "src/assets/"),
+    contentBasePublicPath: "/assets",
+  },
   mode,
   module: {
     rules: [
@@ -58,6 +63,7 @@ const config = {
     filename: "[name].[contenthash].js",
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src/client/index.html"),
     }),

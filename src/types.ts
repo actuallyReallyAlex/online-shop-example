@@ -4,6 +4,10 @@ export type Controller = {
   router: Router;
 };
 
+export interface CounterState {
+  count: number;
+}
+
 export type Domain = string | undefined;
 
 export interface Product {
@@ -13,4 +17,8 @@ export interface Product {
   price: number;
   quantity: number;
   title: string;
+}
+
+export interface RootState {
+  counter: CounterState;
 }

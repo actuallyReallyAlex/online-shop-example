@@ -7,6 +7,7 @@ import { incrementRequest } from "./store/Counter/CounterAction";
 import Catalog from "./components/Catalog";
 
 import { Product, RootState } from "../types";
+import Cart from "./components/Cart";
 
 const App: React.FunctionComponent<unknown> = () => {
   const count = useSelector((state: RootState) => state.counter.count);
@@ -49,6 +50,7 @@ const App: React.FunctionComponent<unknown> = () => {
         Increment Count
       </button>
       <Catalog inventory={inventory} />
+      <Cart />
     </div>
   );
 };

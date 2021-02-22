@@ -4,7 +4,11 @@ import { Provider } from "react-redux";
 
 import store from "./store";
 
+import { createSagas } from "./store/sagas";
+
 import App from "./App";
+
+store.runSaga(createSagas);
 
 ReactDOM.render(
   <Provider store={store}>

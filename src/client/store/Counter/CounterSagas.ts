@@ -1,6 +1,6 @@
 import { put, takeEvery } from "redux-saga/effects";
 
-import * as ACTIONS from "./CounterAction";
+import * as ACTIONS from "./CounterActions";
 import * as TYPES from "./CounterTypes";
 
 export function* increment(): Generator {

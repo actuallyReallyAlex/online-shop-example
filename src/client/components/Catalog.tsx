@@ -1,21 +1,17 @@
 import * as React from "react";
+import { useSelector } from "react-redux";
+
 import ProductDisplay from "./ProductDisplay";
 
-import { Product } from "../../types";
+import { Product, RootState } from "../../types";
 
-interface CatalogProps {
-  inventory: Product[];
-}
-
-const Catalog: React.FunctionComponent<CatalogProps> = (
-  props: CatalogProps
-) => {
-  const { inventory } = props;
+const Catalog: React.FunctionComponent<unknown> = () => {
+  const products = useSelector((state: RootState) => state.inventory.products);
 
   return (
     <div>
       Catalog
-      {inventory.map((product) => (
+      {products.map((product: Product) => (
         <ProductDisplay key={product.id} {...product} />
       ))}
     </div>

@@ -6,7 +6,7 @@ import express, { Request, Response } from "express";
 import morgan from "morgan";
 import path from "path";
 
-import { Controller } from "./types";
+import { Controller } from "../types";
 
 class App {
   public app: express.Application;

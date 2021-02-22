@@ -3,7 +3,9 @@ import { createLogger } from "redux-logger";
 import createSagaMiddleware from "redux-saga";
 
 import reducers from "./reducers";
-import { watchSagas } from "./sagas";
+import { createSagas } from "./sagas";
+
+import { CustomStore } from "../../types";
 
 const saga = createSagaMiddleware();
 
@@ -19,8 +21,10 @@ const logger = createLogger({ collapsed: true });
 
 const enhancer = composeEnhancers(applyMiddleware(saga, logger));
 
-const store = createStore(reducers, enhancer);
+const store: CustomStore = createStore(reducers, enhancer);
 
-saga.run(watchSagas);
+store.runSaga = saga.run;
+
+saga.run(createSagas);
 
 export default store;
